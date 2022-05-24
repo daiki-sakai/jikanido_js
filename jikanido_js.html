@@ -1,0 +1,44 @@
+<html>
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@latest/dist/xlsx.full.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@latest/dist/cpexcel.js"></script>
+    <link href="https://unpkg.com/tabulator-tables@4.0.5/dist/css/tabulator.min.css" rel="stylesheet">
+    <script type="text/javascript" src="https://unpkg.com/tabulator-tables@4.0.5/dist/js/tabulator.min.js"></script>
+    <style type="text/css">
+        div.droparea {
+          width: 600px;
+          height: 100px;
+          border: 2px solid;
+          border-radius: 6px;
+          text-align: center;
+          overflow: auto;
+        }
+        div.droparea:hover {
+          cursor: pointer;
+        }
+        div.droparea p {
+          text-align: center;
+        }
+        input[type="file"] {
+          display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="ddarea">
+      <input type="file" name="jikanido" id="jikanido" />
+      <div class="droparea" id="msgarea">
+        <p>ここにファイルをドラッグ＆ドロップするか、クリックしてファイルを選択</p>
+      </div>
+    </div>
+    
+    フィルター<br />
+    部署コード：<input type="text" name="divcd" id="divcd" value="26B51600" placeholder="26B51600"/><br/>
+
+    <!-- <input type="button" name="up" value="解析" onClick='if($("#jikanido").val().length==0){alert("ファイルを選択してください")}analyzeJikanido();' /><br /> -->
+    <div id="example-table"></div>
+    </script>
+    <script src="jikanido_js.js"></script>
+</body>
+</html>

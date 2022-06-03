@@ -51,10 +51,24 @@ let table;
         table.clearFilter();
         table.addFilter([
             [
-            {field:"移動元組織コード", type:"=", value:divcd},
-            {field:"移動先組織コード", type:"=", value:divcd},
+                {field:"移動元組織コード", type:"=", value:divcd},
+                {field:"移動先組織コード", type:"=", value:divcd},
             ]
         ]);
+        // filterされたデータを取得
+        table.getRows("active").map((row) => {
+            let d = row.getData();
+            if (d["移動元組織コード"] == divcd && d["移動時間"] > 0) {
+                let time = d["移動時間"] * -1;
+                row.update({"移動時間":time});
+//                d["移動時間"] = d["移動時間"] * -1;
+            } else if(d["移動先組織コード"] == divcd && d["移動時間"] < 0) {
+                let time = d["移動時間"] * -1;
+                row.update({"移動時間":time});
+//                d["移動時間"] = d["移動時間"] * -1;
+            }
+
+        });
     });
 })();
 

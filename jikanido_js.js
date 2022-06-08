@@ -1,5 +1,14 @@
-let table;
 
+$(document).ready(() => {
+    let divcd = $.cookie('divcd');
+    if (divcd == null || divcd == "") {
+        $("#divcd").val("26B51600");
+    } else {
+        $("#divcd").val(divcd);
+    }
+});
+
+let table;
 (function(){
     //HTML自体にドラッグ＆ドロップしても何もしないようにする
     $('html').on('dragover', function(e){
@@ -48,6 +57,12 @@ let table;
 (function(){
     $("#divcd").focusout((e)=> {
         let divcd = $(e.target).val();
+        // Cookieに保存
+        $.cookie("divcd", divcd, { expires: 35 });
+        if (table == null){
+            return;
+        }
+
         table.clearFilter();
         table.addFilter([
             [
@@ -70,6 +85,7 @@ let table;
 
         });
     });
+
 })();
 
 function readJikanidoFile(file){

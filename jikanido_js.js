@@ -84,6 +84,9 @@ let table;
             }
 
         });
+
+        // 合計行を再計算
+        table.recalc();
     });
 
 })();
@@ -104,7 +107,7 @@ function readJikanidoFile(file){
                 {title:"移動元組織コード", field:"移動元組織コード", sorter:"string"},
                 {title:"移動先組織コード", field:"移動先組織コード", sorter:"string"},
                 {title:"時間種別", field:"時間種別", sorter:"string"},
-                {title:"移動時間", field:"移動時間", align:"right", sorter:"number", formatterParams:{precision:2}, bottomCalc:"sum", bottomCalcParams:{precision:2}},
+                {title:"移動時間", field:"移動時間", hozAlign:"right", sorter:"number", formatterParams:{precision:2}, bottomCalc:"sum", bottomCalcParams:{precision:2}},
                 {title:"内容", field:"内容", sorter:"string"},
             ],
             rowClick:function(e, row){ //trigger an alert message when the row is clicked
